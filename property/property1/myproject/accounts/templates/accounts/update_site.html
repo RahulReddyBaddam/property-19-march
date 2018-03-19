@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+  <br>
+<h5>Edit the details of your site here</h5>
+  <form class="form-control" method="POST" action="{% url 'addsite' %}" style="border-color:transparent">
+    {% csrf_token %}
+    
+    <!-- {{form2.as_p}} -->
+    {{form1.as_p}}
+
+    <button type="submit" class="btn btn-primary" name="button">Submit</button>
+
+  </form>
+</div>
+
+{% endblock %}

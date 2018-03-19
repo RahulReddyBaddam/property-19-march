@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+<body>
+	<style>
+
+
+	legend
+	{
+		font-size: 50px;
+		text-align: center;
+		font-style: italic;
+	}
+	form
+	{
+		position: left;
+		width:690px;
+		height:500px;
+	}
+	<legend>ADD SITE</legend>
+</style>
+<div class="container text-center">
+  <br>
+<h5 style="color: white">Add the details of your site here</h5>
+  <form class="form-control" method="POST" action="{% url 'addsite' %}" style="border-color:transparent;background-color: black;color: white;opacity: 0.8">
+    {% csrf_token %}
+    <br>
+    {{form2.as_p}}
+    {{form1.as_p}}
+
+    <button type="submit" class="btn btn-primary" name="button">Submit</button>
+
+  </form>
+</div>
+
+{% endblock %}

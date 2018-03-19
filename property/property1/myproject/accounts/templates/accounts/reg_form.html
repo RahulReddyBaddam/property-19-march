@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<body>
+<style>
+body
+{
+  background-image:url(http://www.fondosescritoriogratis.net/wp-content/uploads/2011/08/rascacielos.jpg);
+}
+
+div.center {
+    margin:auto;
+    width: 70%;
+    padding: 60px;
+    font-size: 100%;
+  text-align: left;
+}
+  legend
+{
+font-size:50px;
+  text-align: center;
+  font-style: italic bold;
+}
+form {
+  position: center;
+  width  : 690px;
+  height : 500px;
+}
+</style>
+<div class="center" >
+		<legend>REGISTER</legend>
+<form class="form-control" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-primary" name="button">Submit</button>
+
+</form>
+{% endblock %}

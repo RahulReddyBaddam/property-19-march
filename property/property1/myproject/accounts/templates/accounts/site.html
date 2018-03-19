@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+body{
+  background-image: url(http://www.fondosescritoriogratis.net/wp-content/uploads/2011/08/rascacielos.jpg)
+}
+</style>
+<div class="container text-center" style="padding-top:2rem">
+  <h3>Your sites</h3><br>
+  <style media="screen">
+    div.scr{
+      overflow: auto;
+      height: 25rem;
+    }
+  </style>
+  <div class="scr" style="margin-left:30%;margin-right:3rem">
+                  {% for site in sites %}
+
+                  <div class="card" style="width:20rem">
+          <div class="card-body">
+            <h5 class="card-title">{{site.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{site.category}}</h6>
+            <h5 class="card-title">{{site.user.get_full_name}}</h5>
+            <h5 class="card-title"> &#8377; {{site.cost}}</h5>
+            <p class="card-text">{{site.descrip}}</p>
+            <h5 class="card-title">{{site.created_date}}</h5>
+            <a href="{% url 'update_site' pk=site.pk %}" class="card-link">Update</a>
+            <a href="{% url 'delete_site' pk=site.pk %}" class="card-link">Delete</a>
+          </div>
+        </div>
+        <br>
+
+                  {% endfor %}
+                </div>
+</div>
+
+{% endblock %}
